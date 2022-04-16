@@ -3,6 +3,30 @@
  <h4>Title</h4>
   <%= f.text_field :title %>
  <h4>Opinion</h4>
-  <%= f.text_area :body %>
+  <p><%= f.text_area :body %></p>
  <%= f.submit 'Create book' %>
 <% end %>
+
+
+
+
+<h2>Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan= "1"></th>
+      <th><h4>Title</h4></th>
+      <th><h4>Opinion</h4></th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @books.each do |f| %>
+     <tr>
+       <td><%= f.user.name %></td>
+       <td><%= f.title %></td>
+       <td><%= f.body %></td>
+     </tr>
+     <% end %>
+  </tbody>
+</table>
