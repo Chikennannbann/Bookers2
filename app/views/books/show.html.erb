@@ -13,12 +13,12 @@
   <tbody>
      <tr>
        <td><%= @books.user.name %></td>
-       <td><%= @books.title %></td>
+       <td><%= link_to @books.title, book_path(@books.id) %></td>
        <td><%= @books.body %></td>
        <td>Edit</td>
        <td>
         <% if @books.user == current_user %>
-         <%= link_to "Destroy", books_path, method: :delete %>
+         <%= link_to 'Destroy', book_path(@books), method: :delete %>
         <% end %>
        </td>
      </tr>
