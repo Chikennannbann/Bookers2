@@ -7,6 +7,13 @@
    </table>
 </div>
 
+<div>
+  <% if @user == current_user %>
+  <p><%= link_to "edit profile", edit_user_path(@user.id)%></p>
+   <% else %>
+   <p><%= link_to "edit profile", user_path(@user.id)%></p>
+  <% end %>
+</div>
 
 <h2>Books</h2>
 <table>
