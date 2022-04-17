@@ -27,10 +27,10 @@
        <td><%= @books.user.name %></td>
        <td><%= link_to @books.title, book_path(@books.id) %></td>
        <td><%= @books.body %></td>
-       <td>Edit</td>
-       <td>
+
         <% if @books.user == current_user %>
-         <%= link_to 'Destroy', book_path(@books), method: :delete %>
+         <td><%= link_to 'Edit', edit_book_path(@books) %></td>
+         <td><%= link_to 'Destroy', book_path(@books), method: :delete %>
         <% end %>
        </td>
      </tr>
