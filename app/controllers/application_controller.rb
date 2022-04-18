@@ -8,6 +8,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   end
 
   def after_sign_out_path_for(resource)
+    flash[:notice3] = "Signed out successfully."
     root_path
   end
 
