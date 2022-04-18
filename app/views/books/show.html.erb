@@ -1,13 +1,18 @@
 <div>
-  <h2>User info</h2>
+  <h1>User info</h1>
+    <%= image_tag @books.user.get_profile_image %>
    <table>
-     <tr><th>name</th><td><%=  %></td></tr>
-     <tr><th>introduction</th><td><%=  %></td></tr>
+     <tr><th>name</th><td><%= @books.user.name %></td></tr>
+     <tr><th>introduction</th><td><%= @books.user.introduction %></td></tr>
    </table>
 </div>
 
 <div>
- <p><%= link_to "edit profile" %></p>
+ <% if @books.user == current_user %>
+  <p><%= link_to "edit profile", edit_user_path(@books.user.id)%></p>
+   <% else %>
+ <p><%= link_to "edit profile", user_path(current_user.id) %></p>
+ <% end %>
 </div>
 
 <h1>New book</h1>
@@ -15,16 +20,18 @@
  <h4>Title</h4>
   <%= f.text_field :title %>
  <h4>Opinion</h4>
-  <%= f.text_area :body %>
+  <p><%= f.text_area :body %></p>
  <%= f.submit 'Create book' %>
 <% end %>
 
 
-<h2>Book detail</h2>
+<h1>Book detail</h1>
 <table>
   <tbody>
      <tr>
-       <td><%= @books.user.name %></td>
+       <td><p><%= image_tag @books.user.get_profile_image %></p>
+           <p><%= link_to @books.user.name,  user_path(@books.user.id) %></p>
+       </td>
        <td><%= link_to @books.title, book_path(@books.id) %></td>
        <td><%= @books.body %></td>
 
