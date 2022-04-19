@@ -1,9 +1,22 @@
 <%= flash[:notice3] %>
 
-<h1>welcome to <storong><i class="fa-solid fa-book"></i>Bookers!!</storong></h1>
-<p>In <storong><i class="fa-solid fa-book"></i>Bookers</storong>,<br>
-you can share and exchange your opinions, impressions, and emotions<br>
-about various books!</p>
+<div class="container">
+  <div class="row mx-auto">
 
-<div><%= link_to "Log in", new_user_session_path %></div>
-<div><%= link_to "Sign up", new_user_registration_path %></div>
+   <h1>
+    welcome to <strong><i class="fa-solid fa-book"></i>Bookers</strong>!!
+   </h1>
+   <p>In <strong><i class="fa-solid fa-book"></i>Bookers</strong>,<br>
+   you can share and exchange your opinions, impressions, and emotions<br>
+   about various books!</p>
+
+   <div class="btn-wrapper col-10 mx-auto">
+     <div class="row">
+      <div><%= link_to "Log in", new_user_session_path %></div>
+     </div>
+     <div>
+      <div><%= link_to "Sign up", new_user_registration_path %></div>
+     </div>
+   </div>
+ </div>
+</div>
