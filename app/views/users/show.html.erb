@@ -1,4 +1,5 @@
 <%= flash[:notice] %>
+<%= flash[:notice4] %>
 
 <div>
   <h1>User info</h1>
@@ -11,9 +12,13 @@
 
 <div>
   <% if @user == current_user %>
-  <p><%= link_to "edit profile", edit_user_path(@user.id)%></p>
+  <p><%= link_to(edit_user_path) do %></p>
+      <i class="fa-solid fa-user-gear"></i>
+     <% end %>
    <% else %>
-   <p><%= link_to "edit profile", user_path(current_user.id)%></p>
+   <p><%= link_to(user_path(current_user.id)) do %></p>
+       <i class="fa-solid fa-user-gear"></i>
+      <% end %>
   <% end %>
 </div>
 

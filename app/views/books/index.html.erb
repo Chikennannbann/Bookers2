@@ -18,7 +18,9 @@
 </div>
 
 <div>
- <p><%= link_to "edit profile", user_path(current_user.id) %></p>
+ <p><%= link_to( user_path(current_user.id)) do %></p>
+     <i class="fa-solid fa-user-gear"></i>
+    <% end %>
 </div>
 
 
