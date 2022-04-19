@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
-  validates :introduction,  length: { maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
+  # 中枢のモデルだからvalidation書いたらbook以外は反映される(signupなど)
 
   has_one_attached :profile_image
 
