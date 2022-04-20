@@ -14,14 +14,21 @@
    <% end %>
 
    <%= form_with model: @user do |f| %>
-    <p>Name</p>
+    <div class="form-group">
+     <p>Name</p>
      <%= f.text_field :name %>
+    </div>
 
-    <p class="pt-3">Image</p>
+    <div class="form-group">
+     <p>Image</p>
      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
 
-    <p class="pt-3">Introduction</p>
-     <p><%= f.text_area :introduction %></p>
+    <div class="form-group">
+     <p>Introduction</p>
+     <%= f.text_area :introduction %>
+    </div>
+
      <button type="submit" class="btn btn-secondary">
       <% f.submit %>Update User
      </button>
