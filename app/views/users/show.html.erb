@@ -1,48 +1,53 @@
 <%= flash[:notice] %>
 <%= flash[:notice4] %>
 
-<div>
-  <h1>User info</h1>
-  <%= image_tag @user.get_profile_image %>
-   <table>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3">
+   <h2>User info</h2>
+   <%= image_tag @user.get_profile_image %>
+   <table class="table">
      <tr><th>name</th><td><%= @user.name %></td></tr>
      <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
    </table>
-</div>
 
-<div>
-  <% if @user == current_user %>
-  <p><%= link_to(edit_user_path) do %></p>
+   <% if @user == current_user %>
+    <button class"btn btn-outline-secondary btn-lg"><%= link_to(edit_user_path) do %>
       <i class="fa-solid fa-user-gear"></i>
-     <% end %>
-   <% else %>
-   <p><%= link_to(user_path(current_user.id)) do %></p>
-       <i class="fa-solid fa-user-gear"></i>
       <% end %>
-  <% end %>
-</div>
+    </button>
+     <% else %>
+    <p><%= link_to(user_path(current_user.id)) do %></p>
+       <i class="fa-solid fa-user-gear"></i>
+     <% end %>
+   <% end %>
 
+   <h2>New book</h2>
+    <%= form_with model: @book do |f|%>
+     <h4>Title</h4>
+     <%= f.text_field :title %>
+     <h4>Opinion</h4>
+     <p><%= f.text_area :body %></p>
+     <button type="submit" class="btn btn-success">
+     <% f.submit %>Create book
+     </button>
+    <% end %>
+  </div>
 
-<h1>New book</h1>
-<%= form_with model: @book do |f|%>
- <h4>Title</h4>
-  <%= f.text_field :title %>
- <h4>Opinion</h4>
-  <p><%= f.text_area :body %></p>
- <%= f.submit 'Create book' %>
-<% end %>
+  <div class="col-md-1"></div>
 
-<h1>Books</h1>
-<table>
-  <thead>
-    <tr>
+  <div class="col-md-8">
+   <h2>Books</h2>
+   <table class="table">
+    <thead>
+     <tr>
       <th colspan= "1"></th>
       <th><h4>Title</h4></th>
       <th><h4>Opinion</h4></th>
-    </tr>
-  </thead>
+     </tr>
+    </thead>
 
-  <tbody>
+    <tbody>
      <% @books.each do |f| %>
      <tr>
        <td><%= image_tag @user.get_profile_image %></td>
@@ -50,5 +55,8 @@
        <td><%= f.body %></td>
      </tr>
      <% end %>
-  </tbody>
-</table>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

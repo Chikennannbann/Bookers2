@@ -1,39 +1,43 @@
-<div>
-  <h1>User info</h1>
-  <%= image_tag @user.get_profile_image %>
-   <table>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3">
+   <h2>User info</h2>
+   <%= image_tag @user.get_profile_image %>
+    <table class="table">
      <tr><th>name</th><td><%= @user.name %></td></tr>
      <tr><th>introduction</th><td><%= @user.introduction %></td></tr>
-   </table>
-</div>
+    </table>
 
-<div>
-  <p><%= link_to(edit_user_path(@user.id)) do %></p>
+   <p><%= link_to(edit_user_path(@user.id)) do %></p>
       <i class="fa-solid fa-user-gear"></i>
      <% end %>
-</div>
-
-<h1>New book</h1>
-<%= form_with model: @book do |f|%>
- <h4>Title</h4>
-  <%= f.text_field :title %>
- <h4>Opinion</h4>
-  <p><%= f.text_area :body %></p>
- <%= f.submit 'Create book' %>
-<% end %>
 
 
-<h1>Users</h1>
-<table>
-  <thead>
-    <tr>
+   <h2>New book</h2>
+    <%= form_with model: @book do |f|%>
+     <h4>Title</h4>
+     <%= f.text_field :title %>
+     <h4>Opinion</h4>
+     <p><%= f.text_area :body %></p>
+     <button type="submit" class="btn btn-success">
+     <% f.submit %>Create book
+     </button>    <% end %>
+  </div>
+
+  <div class="col-md-1"></div>
+
+  <div class="col-md-8">
+   <h2>Users</h2>
+   <table class="table">
+    <thead>
+     <tr>
       <th><h4>image</h4></th>
       <th><h4>Name</h4></th>
       <th colspan= "3"></th>
-    </tr>
-  </thead>
+     </tr>
+    </thead>
 
-  <tbody>
+    <tbody>
      <% @users.each do |f| %>
      <tr>
        <td><%= image_tag f.get_profile_image %></td>
@@ -41,5 +45,8 @@
        <td><%= link_to "Show", user_path(f.id) %></td>
      </tr>
      <% end %>
-  </tbody>
-</table>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>

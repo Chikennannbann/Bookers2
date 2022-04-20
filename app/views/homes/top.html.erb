@@ -4,7 +4,7 @@
   <div class="row">
    <div class="mx-auto">
 
-   <h1 class="my-3">
+   <h1 class="mb-3">
     welcome to <strong><i class="fa-solid fa-book"></i>Bookers</strong>!!
    </h1>
 
@@ -12,14 +12,9 @@
    <p class="mb-3">you can share and exchange your opinions, impressions, and emotions</p>
    <p class="mb-3">about various books!</p>
 
-   <div class="btn-wrapper col-10 mx-auto">
-     <div class="row">
-      <div class="btn btn-info btn-lg btn-block mb-3"><%= link_to "Log in", new_user_session_path %></div>
-     </div>
-     <div class="row">
-      <div class="btn btn-success btn-lg btn-block"><%= link_to "Sign up", new_user_registration_path %></div>
-     </div>
-   </div>
+
+      <div><%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-lg mb-3"%></div>
+      <div><%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-success" %></div>
    </div>
  </div>
 </div>

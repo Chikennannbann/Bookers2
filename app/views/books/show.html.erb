@@ -1,53 +1,58 @@
 <%= flash[:notice1] %>
 <%= flash[:notice2] %>
 
-<div>
-  <h1>User info</h1>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3">
+   <h2>User info</h2>
     <%= image_tag @books.user.get_profile_image %>
-   <table>
+    <table class="table">
      <tr><th>name</th><td><%= @books.user.name %></td></tr>
      <tr><th>introduction</th><td><%= @books.user.introduction %></td></tr>
-   </table>
-</div>
+    </table>
 
-<div>
- <% if @books.user == current_user %>
-  <p><%= link_to(edit_user_path(@books.user.id)) do %></p>
-      <i class="fa-solid fa-user-gear"></i>
-     <% end %>
+   <% if @books.user == current_user %>
+    <p><%= link_to(edit_user_path(@books.user.id)) do %></p>
+       <i class="fa-solid fa-user-gear"></i>
+       <% end %>
    <% else %>
- <p><%= link_to(user_path(current_user.id)) do %></p>
-     <i class="fa-solid fa-user-gear"></i>
-    <% end %>
- <% end %>
-</div>
+    <p><%= link_to(user_path(current_user.id)) do %></p>
+       <i class="fa-solid fa-user-gear"></i>
+       <% end %>
+   <% end %>
 
-<h1>New book</h1>
-<%= form_with model: @book do |f|%>
- <h4>Title</h4>
-  <%= f.text_field :title %>
- <h4>Opinion</h4>
-  <p><%= f.text_area :body %></p>
- <%= f.submit 'Create book' %>
-<% end %>
+   <h2>New book</h2>
+   <%= form_with model: @book do |f|%>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+    <h4>Opinion</h4>
+    <p><%= f.text_area :body %></p>
+     <button type="submit" class="btn btn-success">
+     <% f.submit %>Create book
+     </button>   <% end %>
+  </div>
 
+  <div class="col-md-1"></div>
 
-<h1>Book detail</h1>
-<table>
-  <tbody>
-     <tr>
-       <td><p><%= image_tag @books.user.get_profile_image %></p>
+  <div class="col-md-8">
+    <h2>Book detail</h2>
+     <table class="table">
+      <tbody>
+       <tr>
+        <td><p><%= image_tag @books.user.get_profile_image %></p>
            <p><%= link_to @books.user.name,  user_path(@books.user.id) %></p>
-       </td>
-       <td><%= link_to @books.title, book_path(@books.id) %></td>
-       <td><%= @books.body %></td>
+        </td>
+        <td><%= link_to @books.title, book_path(@books.id) %></td>
+        <td><%= @books.body %></td>
 
-        <% if @books.user == current_user %>
-         <td><%= link_to 'Edit', edit_book_path(@books) %></td>
-         <td><%= link_to 'Destroy', book_path(@books), method: :delete %>
+         <% if @books.user == current_user %>
+         <td><%= link_to'Edit', edit_book_path(@books), class: "btn btn-success btn-sm" %></td>
+         <td><%= link_to 'Destroy', book_path(@books), method: :delete, class: "btn btn-danger btn-sm" %></td>
         <% end %>
-       </td>
-     </tr>
+       </tr>
 
-  </tbody>
-</table>
+      </tbody>
+     </table>
+  </div>
+ </div>
+</div>
