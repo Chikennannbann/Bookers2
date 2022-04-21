@@ -4,25 +4,11 @@
 <div class="container">
  <div class="row">
   <div class="col-md-3">
-   <h2>User info</h2>
-    <%= image_tag @books.user.get_profile_image %>
-    <table class="table">
-     <tr><th>name</th><td><%= @books.user.name %></td></tr>
-     <tr><th>introduction</th><td><%= @books.user.introduction %></td></tr>
-    </table>
+   <%= render 'users/userinfo', user: @books.user %>
 
-     <%= render 'users/profile', user: @books.user %>
+   <%= render 'users/profile', user: @books.user %>
 
-
-   <h2 class="mt-3">New book</h2>
-   <%= form_with model: @book do |f|%>
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <p>Opinion</p>
-    <p><%= f.text_area :body %></p>
-     <button type="submit" class="btn btn-success">
-     <% f.submit %>Create book
-     </button>   <% end %>
+   <%= render 'newbook', book: @book %>
   </div>
 
   <div class="col-md-1"></div>
