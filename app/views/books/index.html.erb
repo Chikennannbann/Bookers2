@@ -13,8 +13,11 @@
   <div class="col-md-3">
    <%= render 'users/userinfo', user: @user %>
 
-
-    <%= render 'users/profile', user: @user.id %>
+ <div class="row">
+  <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block col-12" do %>
+      <i class="fa-solid fa-user-gear"></i>
+  <% end %>
+ </div>
 
    <%= render 'newbook', book: @book %>
 

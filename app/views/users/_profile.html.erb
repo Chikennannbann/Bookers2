@@ -2,12 +2,12 @@
 
 <% if user == current_user %>
  <div class="row">
-  <%= link_to edit_user_path, class: "btn btn-outline-secondary btn-block col-12" do %>
+  <a href= "/users/id/edit" class="btn btn-outline-secondary btn-block col-12">
       <i class="fa-solid fa-user-gear"></i>
-  <% end %>
+  </a>
  </div>
 <% else %>
- <div>
+ <div class="row">
   <%= link_to user_path(current_user.id), class: "btn btn-outline-secondary btn-block col-12" do %>
        <i class="fa-solid fa-user-gear"></i>
   <% end %>

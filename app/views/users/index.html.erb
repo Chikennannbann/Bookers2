@@ -3,7 +3,11 @@
   <div class="col-md-3">
    <%= render 'userinfo', user: @user %>
 
-   <%= render 'profile', user: @user.id %>
+  <div class="row">
+   <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block col-12" do %>
+      <i class="fa-solid fa-user-gear"></i>
+   <% end %>
+  </div>
 
    <%= render 'books/newbook', book: @book %>
 
