@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :user_confirmation, only: [:edit]
+
   def show
     @user = User.find(params[:id])
     @books = @user.books
@@ -29,6 +31,14 @@ class UsersController < ApplicationController
 
 
   private
+
+  def user_confirmation
+    @user = User.find(params[:id])
+    if @user == current_user
+    else
+      redirect_to user_path(current_user)
+    end
+  end
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

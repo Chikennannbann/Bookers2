@@ -1,9 +1,6 @@
 <%= flash[:notice3] %>
 
-<div class="container">
-  <div class="row">
-   <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-
+<div class="mx-auto mt-3">
    <h1 class="mb-3">
     welcome to <strong><i class="fa-solid fas fa-book"></i>Bookers</strong>!!
    </h1>
@@ -11,15 +8,9 @@
    <p class="mb-3">In <strong><i class="fa-solid fas fa-book"></i>Bookers</strong>,</p>
    <p class="mb-3">you can share and exchange your opinions, impressions, and emotions</p>
    <p class="mb-3">about various books!</p>
-   </div>
 
-    <div class="btn wrapper col-7 mx-auto">
-     <div class="row">
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm mb-3 btn-block" %>
-     </div>
-     <div class="row">
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block" %>
-     </div>
+    <div class="wrapper mx-auto">
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-info mb-3 btn-block" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-block" %>
     </div>
- </div>
 </div>

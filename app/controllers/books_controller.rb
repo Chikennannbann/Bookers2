@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+  before_action :user_confirmation, only: [:edit]
+
   def index
     @books = Book.all
     @book = Book.new
@@ -45,6 +47,14 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def user_confirmation
+    @book = Book.find(params[:id])
+    if @book.user == current_user
+    else
+      redirect_to books_path
+    end
+  end
 
   def book_params
     params.require(:book).permit(:title, :body)
